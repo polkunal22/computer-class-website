@@ -208,6 +208,7 @@ a {
     padding: 72px 32px 60px;
     flex-wrap: wrap;
     max-width: 1280px;
+    width: min(100%, 1280px);
     margin: 0 auto;
     background:
         radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 26%),
@@ -218,6 +219,7 @@ a {
 .hero-content {
     flex: 1 1 420px;
     max-width: 580px;
+    width: 100%;
 }
 
 .hero-tag {
@@ -253,6 +255,8 @@ a {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    width: 100%;
+    max-width: 420px;
     background: rgba(255, 255, 255, 0.78);
     border: 1px solid rgba(37, 99, 235, 0.12);
     border-radius: 30px;
@@ -261,8 +265,9 @@ a {
 }
 
 .hero-image-box img {
-    width: 340px;
-    height: 340px;
+    width: min(100%, 340px);
+    aspect-ratio: 1 / 1;
+    height: auto;
     border-radius: 28px;
     object-fit: cover;
     box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
@@ -981,14 +986,31 @@ footer ul li a:hover {
 }
 
 /* ----- Responsive ----- */
+@media (max-width: 1024px) {
+    .hero-section {
+        gap: 32px;
+        padding: 56px 24px 48px;
+    }
+
+    .hero-content,
+    .hero-image-box {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .hero-image-box {
+        order: -1;
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 900px) {
     .hero-content h1 {
         font-size: 2.2rem;
     }
 
     .hero-image-box img {
-        width: 260px;
-        height: 260px;
+        width: min(100%, 260px);
     }
 
     .section-block,
@@ -1051,8 +1073,8 @@ footer ul li a:hover {
     }
 
     .hero-section {
-        padding: 40px 20px;
-        gap: 30px;
+        padding: 36px 16px 40px;
+        gap: 26px;
         min-height: auto;
     }
 
@@ -1062,6 +1084,22 @@ footer ul li a:hover {
 
     .hero-buttons {
         justify-content: center;
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn,
+    .hero-buttons .btn-outline {
+        width: 100%;
+    }
+
+    .hero-badges span {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .stat-strip {
+        grid-template-columns: 1fr;
     }
 
     .top-bar {
@@ -1119,9 +1157,12 @@ footer ul li a:hover {
         font-size: 1.8rem;
     }
 
+    .hero-text {
+        font-size: 0.96rem;
+    }
+
     .hero-image-box img {
-        width: 200px;
-        height: 200px;
+        width: min(100%, 200px);
     }
 
     .detail-grid {
@@ -1138,6 +1179,10 @@ footer ul li a:hover {
 
     .section-heading h2 {
         font-size: 1.7rem;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
     }
 }
 
