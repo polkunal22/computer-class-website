@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Submitted - Computer Class</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.avif" alt="Logo">
+                ComputerClass
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Explore.html">Courses</a></li>
+                <li><a href="EnrollNow.html">Enroll</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="submit-page">
+        <div class="submit-card">
+            <span class="check-icon">✅</span>
+            <h1>Form Submitted!</h1>
+            <p>Thank you for your submission! We have received your enrollment request and will contact you within 24 hours with further details.</p>
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                <a href="Explore.html" class="btn">Browse Courses</a>
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <h4>Computer Class</h4>
+                <p style="color:#94a3b8; font-size:0.92rem;">Empowering students with essential computer skills since 2024.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Explore.html">Courses</a></li>
+                    <li><a href="EnrollNow.html">Enroll Now</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Courses</h4>
+                <ul>
+                    <li><a href="cources/html-details.html">HTML</a></li>
+                    <li><a href="cources/javascript-details.html">JavaScript</a></li>
+                    <li><a href="cources/python-details.html">Python</a></li>
+                    <li><a href="cources/cpp-details.html">C++</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li>📞 +91 98765 43210</li>
+                    <li>📧 info@computerclass.com</li>
+                    <li>📍 Mumbai, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Computer Class. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script>
+        const toggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('open');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>
+

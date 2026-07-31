@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Courses - Computer Class</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.avif" alt="Logo">
+                ComputerClass
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Explore.html" class="active">Courses</a></li>
+                <li><a href="EnrollNow.html">Enroll</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="top-bar">
+        <h1>Explore Courses</h1>
+        <button class="btn btn-sm" onclick="window.location.href='EnrollNow.html'">Enroll Now</button>
+    </div>
+
+    <!-- Search & Filter Bar -->
+    <div class="search-filter-bar">
+        <input type="text" id="searchInput" placeholder="Search courses..." oninput="filterCourses()">
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all" onclick="setFilter(this, 'all')">All</button>
+            <button class="filter-tab" data-filter="web" onclick="setFilter(this, 'web')">Web Dev</button>
+            <button class="filter-tab" data-filter="programming" onclick="setFilter(this, 'programming')">Programming</button>
+            <button class="filter-tab" data-filter="design" onclick="setFilter(this, 'design')">Design</button>
+            <button class="filter-tab" data-filter="database" onclick="setFilter(this, 'database')">Database</button>
+            <button class="filter-tab" data-filter="office" onclick="setFilter(this, 'office')">Office</button>
+            <button class="filter-tab" data-filter="ai" onclick="setFilter(this, 'ai')">AI</button>
+            <button class="filter-tab" data-filter="analytics" onclick="setFilter(this, 'analytics')">Analytics</button>
+            <button class="filter-tab" data-filter="security" onclick="setFilter(this, 'security')">Security</button>
+        </div>
+    </div>
+
+    <div class="card-container" id="courseGrid">
+        <div class="card" data-category="web" data-name="HTML">
+            <div class="card-content">
+                <img src="img/media.jpg" alt="HTML">
+                <h2>HTML</h2>
+                <p>Learn the standard markup language for creating web pages. Master tags, elements, forms, and semantic HTML to build structured web content.</p>
+                <a href="cources/html-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="web programming" data-name="JavaScript">
+            <div class="card-content">
+                <img src="img/javascript.png" alt="JavaScript">
+                <h2>JavaScript</h2>
+                <p>Master the language of the web. Learn DOM manipulation, ES6+, async programming, and build interactive web applications.</p>
+                <a href="cources/javascript-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="web" data-name="React JS">
+            <div class="card-content">
+                <img src="img/javascript.png" alt="React JS">
+                <h2>React JS</h2>
+                <p>Build modern user interfaces with reusable components, hooks, and advanced state management in a professional frontend workflow.</p>
+                <a href="cources/reactjs-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="design" data-name="CorelDRAW">
+            <div class="card-content">
+                <img src="img/coreldraw.png" alt="CorelDRAW">
+                <h2>CorelDRAW</h2>
+                <p>Master vector graphics design. Create logos, illustrations, brochures, and professional visual content with CorelDRAW.</p>
+                <a href="cources/coreldraw-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="programming" data-name="Python">
+            <div class="card-content">
+                <img src="img/python.webp" alt="Python">
+                <h2>Python</h2>
+                <p>Learn Python programming from scratch. Cover data structures, OOP, file handling, and build real-world applications.</p>
+                <a href="cources/python-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="programming" data-name="C++">
+            <div class="card-content">
+                <img src="img/c++.jpg" alt="C++">
+                <h2>C++</h2>
+                <p>Dive into systems programming with C++. Learn pointers, classes, STL, memory management, and build high-performance applications.</p>
+                <a href="cources/cpp-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="programming" data-name="Java Advanced">
+            <div class="card-content">
+                <img src="img/java advanced.png" alt="Java Advanced">
+                <h2>Java Advanced</h2>
+                <p>Go beyond core Java. Learn JDBC, Servlets, JSP, Spring framework, and build enterprise-grade applications.</p>
+                <a href="cources/java-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="database" data-name="MongoDB">
+            <div class="card-content">
+                <img src="img/mongo db.png" alt="MongoDB">
+                <h2>MongoDB</h2>
+                <p>Master NoSQL databases. Learn CRUD operations, aggregation pipelines, indexing, and build scalable data-driven apps.</p>
+                <a href="cources/mongodb-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="office" data-name="Microsoft Office">
+            <div class="card-content">
+                <img src="img/microsoftoffice.png" alt="Microsoft Office">
+                <h2>Microsoft Office</h2>
+                <p>Master Word, Excel, PowerPoint, and Outlook. Learn document creation, data analysis, presentations, and productivity tips.</p>
+                <a href="cources/microsoftoffice-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="ai" data-name="AI & ChatGPT">
+            <div class="card-content">
+                <img src="img/python.webp" alt="AI & ChatGPT">
+                <h2>AI & ChatGPT</h2>
+                <p>Explore modern AI workflows, prompt writing, productivity automation, and real-world use cases that are shaping today’s digital careers.</p>
+                <a href="cources/ai-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="analytics" data-name="Data Analytics">
+            <div class="card-content">
+                <img src="img/mongo db.png" alt="Data Analytics">
+                <h2>Data Analytics</h2>
+                <p>Learn dashboards, Excel analytics, insight reporting, and decision-making strategies for business and career growth.</p>
+                <a href="cources/dataanalytics-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="security" data-name="Cyber Security">
+            <div class="card-content">
+                <img src="img/c++.jpg" alt="Cyber Security">
+                <h2>Cyber Security</h2>
+                <p>Understand digital protection, threat awareness, secure workflows, and practical safety practices used in modern IT environments.</p>
+                <a href="cources/cybersecurity-details.html" class="btn btn-sm">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <h4>Computer Class</h4>
+                <p style="color:#94a3b8; font-size:0.92rem;">Empowering students with essential computer skills since 2024.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Explore.html">Courses</a></li>
+                    <li><a href="EnrollNow.html">Enroll Now</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Courses</h4>
+                <ul>
+                    <li><a href="cources/html-details.html">HTML</a></li>
+                    <li><a href="cources/javascript-details.html">JavaScript</a></li>
+                    <li><a href="cources/python-details.html">Python</a></li>
+                    <li><a href="cources/cpp-details.html">C++</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li>📞 +91 98765 43210</li>
+                    <li>📧 info@computerclass.com</li>
+                    <li>📍 Mumbai, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Computer Class. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script>
+        // Mobile nav
+        const toggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('open');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Filter + Search
+        let activeFilter = 'all';
+
+        function setFilter(btn, filter) {
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = filter;
+            filterCourses();
+        }
+
+        function filterCourses() {
+            const search = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('#courseGrid .card');
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category') || '';
+                const name = (card.getAttribute('data-name') || '').toLowerCase();
+                const matchesFilter = activeFilter === 'all' || category.includes(activeFilter);
+                const matchesSearch = !search || name.includes(search);
+                card.style.display = (matchesFilter && matchesSearch) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
+

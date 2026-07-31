@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics Course - Computer Class</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">
+                <img src="../img/logo.avif" alt="Logo"> ComputerClass
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../Explore.html" class="active">Courses</a></li>
+                <li><a href="../EnrollNow.html">Enroll</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="detail-hero" style="background: linear-gradient(135deg, #14b8a6, #0f766e);">
+        <h1>Data Analytics Course</h1>
+        <p>Turn raw information into meaningful business insights using spreadsheets, dashboards, and reporting workflows.</p>
+        <a href="../EnrollNow.html" class="btn">Enroll Now — ₹26,000</a>
+    </section>
+
+    <div class="detail-content">
+        <div class="detail-grid">
+            <div class="detail-card">
+                <h3>📖 Course Overview</h3>
+                <p style="color:#4b5563;">Explore essential analytics methods used across business, marketing, finance, and operations for data-driven decision making.</p>
+            </div>
+            <div class="detail-card">
+                <h3>⏳ Duration</h3>
+                <p style="color:#4b5563;">8 Weeks · 2 sessions per week<br>Total: 32 hours of live instruction</p>
+            </div>
+            <div class="detail-card">
+                <h3>🎯 What You'll Learn</h3>
+                <ul>
+                    <li>Excel-based analysis</li>
+                    <li>Data cleaning and interpretation</li>
+                    <li>Dashboards and visualization</li>
+                    <li>Trend analysis</li>
+                    <li>Reporting workflow design</li>
+                </ul>
+            </div>
+            <div class="detail-card">
+                <h3>📋 Prerequisites</h3>
+                <ul>
+                    <li>Basic spreadsheet knowledge</li>
+                    <li>Comfort with numbers and charts</li>
+                    <li>Interest in business insights</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 style="color:#1e3a8a; margin-bottom:20px; font-size:1.6rem;">📅 Course Syllabus</h2>
+        <div class="syllabus-list">
+            <div class="syllabus-item"><span class="week">Week 1-2</span><span class="topic">Data Fundamentals</span><span class="duration">8 hrs</span></div>
+            <div class="syllabus-item"><span class="week">Week 3-4</span><span class="topic">Spreadsheet Analysis</span><span class="duration">8 hrs</span></div>
+            <div class="syllabus-item"><span class="week">Week 5-6</span><span class="topic">Visualization & Dashboards</span><span class="duration">8 hrs</span></div>
+            <div class="syllabus-item"><span class="week">Week 7-8</span><span class="topic">Business Reporting Project</span><span class="duration">8 hrs</span></div>
+        </div>
+
+        <div class="pricing-card" style="margin-top:50px;">
+            <div class="pricing-header">
+                <h3>Data Analytics Course</h3>
+                <div class="price">₹26,000 <small>one-time</small></div>
+            </div>
+            <div class="pricing-body">
+                <ul>
+                    <li>32 hours live instruction</li>
+                    <li>Dashboard and reporting practice</li>
+                    <li>Certificate on completion</li>
+                    <li>Real-world problem analysis</li>
+                    <li>Mentor support</li>
+                </ul>
+                <a href="../EnrollNow.html" class="btn" style="width:100%;">Enroll Now</a>
+            </div>
+        </div>
+
+        <div class="instructor-section">
+            <h3 style="margin-bottom:20px; color:#1e3a8a;">👨‍🏫 Your Instructor</h3>
+            <div style="max-width:400px; margin:0 auto; background:#fff; padding:28px 24px; border-radius:18px; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                <img src="../img/microsoftoffice.png" alt="Instructor" style="width:100px;height:100px;border-radius:50%;object-fit:cover;margin:0 auto 12px;border:3px solid #14b8a6;">
+                <h3 style="color:#1e3a8a;">Meera Kulkarni</h3>
+                <p style="color:#4b5563;">Business analyst and training specialist with experience in reporting, dashboards, and people-focused analytics.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div><h4>Computer Class</h4><p style="color:#94a3b8;font-size:0.92rem;">Empowering students with essential computer skills since 2024.</p></div>
+            <div><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../Explore.html">Courses</a></li><li><a href="../EnrollNow.html">Enroll Now</a></li></ul></div>
+            <div><h4>Courses</h4><ul><li><a href="html-details.html">HTML</a></li><li><a href="javascript-details.html">JavaScript</a></li><li><a href="python-details.html">Python</a></li><li><a href="cpp-details.html">C++</a></li></ul></div>
+            <div><h4>Contact</h4><ul><li>📞 +91 98765 43210</li><li>📧 info@computerclass.com</li><li>📍 Mumbai, India</li></ul></div>
+        </div>
+        <div class="footer-bottom">&copy; 2024 Computer Class. All rights reserved.</div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script>
+        const t=document.getElementById('navToggle'),n=document.getElementById('navLinks');
+        t.addEventListener('click',()=>{t.classList.toggle('open');n.classList.toggle('open');});
+        n.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{t.classList.remove('open');n.classList.remove('open');}));
+        const b=document.getElementById('backToTop');
+        window.addEventListener('scroll',()=>{window.scrollY>400?b.classList.add('visible'):b.classList.remove('visible');});
+        b.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React JS Course - Computer Class</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">
+                <img src="../img/logo.avif" alt="Logo"> ComputerClass
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../Explore.html" class="active">Courses</a></li>
+                <li><a href="../EnrollNow.html">Enroll</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="detail-hero" style="background: linear-gradient(135deg, #0ea5e9, #2563eb);">
+        <h1>React JS Course</h1>
+        <p>Build modern front-end applications with reusable components, hooks, routing, and clean UI architecture.</p>
+        <a href="../EnrollNow.html" class="btn">Enroll Now — ₹27,000</a>
+    </section>
+
+    <div class="detail-content">
+        <div class="detail-grid">
+            <div class="detail-card">
+                <h3>📖 Course Overview</h3>
+                <p style="color:#4b5563;">This course is designed for learners who want to build interactive, responsive web apps using React JS and modern UI practices.</p>
+            </div>
+            <div class="detail-card">
+                <h3>⏳ Duration</h3>
+                <p style="color:#4b5563;">10 Weeks · 2 sessions per week<br>Total: 40 hours of live instruction</p>
+            </div>
+            <div class="detail-card">
+                <h3>🎯 What You'll Learn</h3>
+                <ul>
+                    <li>JSX and component-based design</li>
+                    <li>Props, state, and hooks</li>
+                    <li>React routing and navigation</li>
+                    <li>API integration</li>
+                    <li>Responsive UI development</li>
+                    <li>Portfolio project building</li>
+                </ul>
+            </div>
+            <div class="detail-card">
+                <h3>📋 Prerequisites</h3>
+                <ul>
+                    <li>Basic HTML, CSS, JavaScript</li>
+                    <li>Comfort with coding basics</li>
+                    <li>Willingness to practice regularly</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 style="color:#1e3a8a; margin-bottom:20px; font-size:1.6rem;">📅 Course Syllabus</h2>
+        <div class="syllabus-list">
+            <div class="syllabus-item"><span class="week">Week 1-2</span><span class="topic">React Basics</span><span class="duration">8 hrs</span></div>
+            <div class="syllabus-item"><span class="week">Week 3-4</span><span class="topic">Components & State</span><span class="duration">8 hrs</span></div>
+            <div class="syllabus-item"><span class="week">Week 5-6</span><span class="topic">Hooks & Events</span><span class="duration">8 hrs</span></div>
+            <div class="syllabus-item"><span class="week">Week 7-8</span><span class="topic">Routing & API Integration</span><span class="duration">8 hrs</span></div>
+            <div class="syllabus-item"><span class="week">Week 9-10</span><span class="topic">Portfolio Project</span><span class="duration">8 hrs</span></div>
+        </div>
+
+        <div class="pricing-card" style="margin-top:50px;">
+            <div class="pricing-header">
+                <h3>React JS Course</h3>
+                <div class="price">₹27,000 <small>one-time</small></div>
+            </div>
+            <div class="pricing-body">
+                <ul>
+                    <li>40 hours live instruction</li>
+                    <li>Modern React project labs</li>
+                    <li>Certificate on completion</li>
+                    <li>Portfolio-ready outcomes</li>
+                    <li>Mentor support</li>
+                </ul>
+                <a href="../EnrollNow.html" class="btn" style="width:100%;">Enroll Now</a>
+            </div>
+        </div>
+
+        <div class="instructor-section">
+            <h3 style="margin-bottom:20px; color:#1e3a8a;">👨‍🏫 Your Instructor</h3>
+            <div style="max-width:400px; margin:0 auto; background:#fff; padding:28px 24px; border-radius:18px; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                <img src="../img/javascript.png" alt="Instructor" style="width:100px;height:100px;border-radius:50%;object-fit:cover;margin:0 auto 12px;border:3px solid #0ea5e9;">
+                <h3 style="color:#1e3a8a;">Aarav Verma</h3>
+                <p style="color:#4b5563;">Frontend Engineer focused on React, UI systems, and performance-friendly interfaces for modern product teams.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div><h4>Computer Class</h4><p style="color:#94a3b8;font-size:0.92rem;">Empowering students with essential computer skills since 2024.</p></div>
+            <div><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../Explore.html">Courses</a></li><li><a href="../EnrollNow.html">Enroll Now</a></li></ul></div>
+            <div><h4>Courses</h4><ul><li><a href="html-details.html">HTML</a></li><li><a href="javascript-details.html">JavaScript</a></li><li><a href="python-details.html">Python</a></li><li><a href="cpp-details.html">C++</a></li></ul></div>
+            <div><h4>Contact</h4><ul><li>📞 +91 98765 43210</li><li>📧 info@computerclass.com</li><li>📍 Mumbai, India</li></ul></div>
+        </div>
+        <div class="footer-bottom">&copy; 2024 Computer Class. All rights reserved.</div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script>
+        const t=document.getElementById('navToggle'),n=document.getElementById('navLinks');
+        t.addEventListener('click',()=>{t.classList.toggle('open');n.classList.toggle('open');});
+        n.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{t.classList.remove('open');n.classList.remove('open');}));
+        const b=document.getElementById('backToTop');
+        window.addEventListener('scroll',()=>{window.scrollY>400?b.classList.add('visible'):b.classList.remove('visible');});
+        b.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    </script>
+</body>
+</html>

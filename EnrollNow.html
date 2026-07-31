@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Now - Computer Class</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.avif" alt="Logo">
+                ComputerClass
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Explore.html">Courses</a></li>
+                <li><a href="EnrollNow.html" class="active">Enroll</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="top-bar">
+        <h1>Enroll Now</h1>
+        <button class="btn btn-sm" onclick="window.location.href='Explore.html'">Explore Courses</button>
+    </div>
+
+    <div class="container">
+        <h1>Student Enrollment Form</h1>
+        <form action="submit.html" method="GET" onsubmit="return validateForm()">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+
+            <label for="age">Age *</label>
+            <input type="number" id="age" name="age" required min="3" max="100" placeholder="Your age">
+
+            <label>Gender *</label>
+            <div class="gender-group">
+                <div>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                </div>
+                <div>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+                <div>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
+
+            <label for="address">Address *</label>
+            <textarea id="address" name="address" required placeholder="Enter your full address"></textarea>
+
+            <label for="qualification">Qualification *</label>
+            <input type="text" id="qualification" name="qualification" required placeholder="e.g. 12th Pass, Graduate">
+
+            <label for="course">Select Course *</label>
+            <select id="course" name="course" required onchange="updateFee()">
+                <option value="" data-fee="0">— Select a course —</option>
+                <option value="html" data-fee="15000">HTML — ₹15,000</option>
+                <option value="coreldraw" data-fee="20000">CorelDRAW — ₹20,000</option>
+                <option value="cpp" data-fee="18000">C++ — ₹18,000</option>
+                <option value="javascript" data-fee="25000">JavaScript — ₹25,000</option>
+                <option value="reactjs" data-fee="27000">React JS — ₹27,000</option>
+                <option value="mongodb" data-fee="30000">MongoDB — ₹30,000</option>
+                <option value="microsoftoffice" data-fee="12000">Microsoft Office — ₹12,000</option>
+                <option value="python" data-fee="22000">Python — ₹22,000</option>
+                <option value="java" data-fee="28000">Java Advanced — ₹28,000</option>
+                <option value="ai" data-fee="32000">AI & ChatGPT — ₹32,000</option>
+                <option value="dataanalytics" data-fee="26000">Data Analytics — ₹26,000</option>
+                <option value="cybersecurity" data-fee="25000">Cyber Security — ₹25,000</option>
+            </select>
+
+            <label for="fee">Course Fee (₹) *</label>
+            <input type="number" id="fee" name="fee" readonly placeholder="Fee will auto-calculate">
+
+            <input type="submit" value="Submit Enrollment" class="submit-btn">
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <h4>Computer Class</h4>
+                <p style="color:#94a3b8; font-size:0.92rem;">Empowering students with essential computer skills since 2024.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Explore.html">Courses</a></li>
+                    <li><a href="EnrollNow.html">Enroll Now</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Courses</h4>
+                <ul>
+                    <li><a href="cources/html-details.html">HTML</a></li>
+                    <li><a href="cources/javascript-details.html">JavaScript</a></li>
+                    <li><a href="cources/python-details.html">Python</a></li>
+                    <li><a href="cources/cpp-details.html">C++</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li>📞 +91 98765 43210</li>
+                    <li>📧 info@computerclass.com</li>
+                    <li>📍 Mumbai, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Computer Class. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script>
+        // Mobile nav
+        const toggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('open');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Fee auto-calculate
+        function updateFee() {
+            const courseSelect = document.getElementById('course');
+            const feeInput = document.getElementById('fee');
+            const selectedOption = courseSelect.options[courseSelect.selectedIndex];
+            feeInput.value = selectedOption ? (selectedOption.getAttribute('data-fee') || '') : '';
+        }
+        window.onload = updateFee;
+
+        // Form validation
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const course = document.getElementById('course').value;
+
+            if (!name) { alert('Please enter your name.'); return false; }
+            if (!email) { alert('Please enter your email.'); return false; }
+            if (!phone) { alert('Please enter your phone number.'); return false; }
+            if (!course) { alert('Please select a course.'); return false; }
+            return true;
+        }
+    </script>
+</body>
+</html>
+
