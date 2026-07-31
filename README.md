@@ -62,10 +62,18 @@ This website is designed to help learners discover practical computer skills in 
 
 This project is a static website and can be hosted easily on GitHub Pages, Netlify, or any other static hosting provider.
 
-## 🌐 Live Demo
+<h2 align="center">🌐 Live Demo</h2>
 
 <p align="center">
-  <a href="https://computer-class-website-production.up.railway.app/" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/🚀_Live_Demo-Computer_Class_Website-4f46e5?style=for-the-badge&logo=rocket&logoColor=white" alt="Live demo of Computer Class Website" />
+  <a href="https://computer-class-website-production.up.railway.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀-Visit%20Live%20Website-28a745?style=for-the-badge" alt="Live Website"/>
   </a>
+</p>
+
+<p align="center">
+  <strong>
+    <a href="https://computer-class-website-production.up.railway.app/">
+      https://computer-class-website-production.up.railway.app/
+    </a>
+  </strong>
 </p>
