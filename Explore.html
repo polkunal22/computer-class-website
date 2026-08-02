@@ -34,7 +34,7 @@
 
     <!-- Search & Filter Bar -->
     <div class="search-filter-bar">
-        <input type="text" id="searchInput" placeholder="Search courses..." oninput="filterCourses()">
+        <input type="search" id="searchInput" placeholder="Search by course, skill, or category..." oninput="filterCourses()" aria-label="Search courses" autocomplete="off">
         <div class="filter-tabs">
             <button class="filter-tab active" data-filter="all" onclick="setFilter(this, 'all')">All</button>
             <button class="filter-tab" data-filter="web" onclick="setFilter(this, 'web')">Web Dev</button>
@@ -46,6 +46,7 @@
             <button class="filter-tab" data-filter="analytics" onclick="setFilter(this, 'analytics')">Analytics</button>
             <button class="filter-tab" data-filter="security" onclick="setFilter(this, 'security')">Security</button>
         </div>
+        <p class="search-status" id="searchStatus" aria-live="polite"></p>
     </div>
 
     <div class="card-container" id="courseGrid">
@@ -58,7 +59,7 @@
             </div>
         </div>
 
-        <div class="card" data-category="web programming" data-name="JavaScript">
+        <div class="card" data-category="web programming" data-name="JavaScript" data-search="js es6 frontend web development">
             <div class="card-content">
                 <img src="img/javascript.png" alt="JavaScript">
                 <h2>JavaScript</h2>
@@ -69,7 +70,7 @@
 
         <div class="card" data-category="web" data-name="React JS">
             <div class="card-content">
-                <img src="img/javascript.png" alt="React JS">
+                <img src="img/react js.webp" alt="React JS">
                 <h2>React JS</h2>
                 <p>Build modern user interfaces with reusable components, hooks, and advanced state management in a professional frontend workflow.</p>
                 <a href="cources/reactjs-details.html" class="btn btn-sm">Learn More</a>
@@ -87,16 +88,16 @@
 
         <div class="card" data-category="programming" data-name="Python">
             <div class="card-content">
-                <img src="img/python.webp" alt="Python">
+                <img src="img\Python.png" alt="Python">
                 <h2>Python</h2>
                 <p>Learn Python programming from scratch. Cover data structures, OOP, file handling, and build real-world applications.</p>
                 <a href="cources/python-details.html" class="btn btn-sm">Learn More</a>
             </div>
         </div>
 
-        <div class="card" data-category="programming" data-name="C++">
+        <div class="card" data-category="programming" data-name="C++" data-search="cpp c plus plus coding">
             <div class="card-content">
-                <img src="img/c++.jpg" alt="C++">
+                <img src="img\c++.png" alt="C++">
                 <h2>C++</h2>
                 <p>Dive into systems programming with C++. Learn pointers, classes, STL, memory management, and build high-performance applications.</p>
                 <a href="cources/cpp-details.html" class="btn btn-sm">Learn More</a>
@@ -123,7 +124,7 @@
 
         <div class="card" data-category="office" data-name="Microsoft Office">
             <div class="card-content">
-                <img src="img/microsoftoffice.png" alt="Microsoft Office">
+                <img src="img\Microsoft Office2.webp" alt="Microsoft Office">
                 <h2>Microsoft Office</h2>
                 <p>Master Word, Excel, PowerPoint, and Outlook. Learn document creation, data analysis, presentations, and productivity tips.</p>
                 <a href="cources/microsoftoffice-details.html" class="btn btn-sm">Learn More</a>
@@ -132,7 +133,7 @@
 
         <div class="card" data-category="ai" data-name="AI & ChatGPT">
             <div class="card-content">
-                <img src="img/python.webp" alt="AI & ChatGPT">
+                <img src="img\AI & ChatGPT logo.jpg" alt="AI & ChatGPT">
                 <h2>AI & ChatGPT</h2>
                 <p>Explore modern AI workflows, prompt writing, productivity automation, and real-world use cases that are shaping today’s digital careers.</p>
                 <a href="cources/ai-details.html" class="btn btn-sm">Learn More</a>
@@ -141,7 +142,7 @@
 
         <div class="card" data-category="analytics" data-name="Data Analytics">
             <div class="card-content">
-                <img src="img/mongo db.png" alt="Data Analytics">
+                <img src="img\Data Analytics.jpg" alt="Data Analytics">
                 <h2>Data Analytics</h2>
                 <p>Learn dashboards, Excel analytics, insight reporting, and decision-making strategies for business and career growth.</p>
                 <a href="cources/dataanalytics-details.html" class="btn btn-sm">Learn More</a>
@@ -150,7 +151,7 @@
 
         <div class="card" data-category="security" data-name="Cyber Security">
             <div class="card-content">
-                <img src="img/c++.jpg" alt="Cyber Security">
+                <img src="img\Cyber Security.avif" alt="Cyber Security">
                 <h2>Cyber Security</h2>
                 <p>Understand digital protection, threat awareness, secure workflows, and practical safety practices used in modern IT environments.</p>
                 <a href="cources/cybersecurity-details.html" class="btn btn-sm">Learn More</a>
@@ -232,18 +233,50 @@
             filterCourses();
         }
 
+        function normalizeText(value) {
+            return value
+                .toLowerCase()
+                .replace(/[^a-z0-9+#&]+/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
         function filterCourses() {
-            const search = document.getElementById('searchInput').value.toLowerCase().trim();
+            const search = normalizeText(document.getElementById('searchInput').value);
+            const searchTerms = search ? search.split(' ') : [];
             const cards = document.querySelectorAll('#courseGrid .card');
+            let visibleCount = 0;
+
             cards.forEach(card => {
                 const category = card.getAttribute('data-category') || '';
-                const name = (card.getAttribute('data-name') || '').toLowerCase();
+                const searchableText = normalizeText([
+                    card.getAttribute('data-name') || '',
+                    card.getAttribute('data-search') || '',
+                    category,
+                    card.textContent
+                ].join(' '));
                 const matchesFilter = activeFilter === 'all' || category.includes(activeFilter);
-                const matchesSearch = !search || name.includes(search);
-                card.style.display = (matchesFilter && matchesSearch) ? '' : 'none';
+                const matchesSearch = searchTerms.every(term => searchableText.includes(term));
+                const isVisible = matchesFilter && matchesSearch;
+
+                card.hidden = !isVisible;
+                if (isVisible) visibleCount++;
             });
+
+            const status = document.getElementById('searchStatus');
+            if (visibleCount === 0) {
+                status.textContent = `No courses found for "${document.getElementById('searchInput').value.trim()}". Try another keyword.`;
+                status.classList.add('no-results');
+            } else {
+                status.textContent = `${visibleCount} course${visibleCount === 1 ? '' : 's'} found`;
+                status.classList.remove('no-results');
+            }
         }
+
+        // Set the initial result count when the page loads.
+        filterCourses();
     </script>
+    <script src="interactions.js"></script>
 </body>
 </html>
 
